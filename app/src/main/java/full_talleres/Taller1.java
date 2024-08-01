@@ -143,8 +143,7 @@ public class Taller1 {
    Calcular_peso_carga que reciba un float con el peso total del camión cargado en toneladas y otro float con 
    lo que pesa el camión vacío en toneladas, y devuelva el peso neto de la carga en kilos y toneladas 
    en un string del tipo: "### kilos - ### toneladas". 
-   Si hay algún error, devuelva en un string "Error en la función Calcular_peso_carga"
-   */
+   Si hay algún error, devuelva en un string "Error en la función Calcular_peso_carga"*/
     public static String Calcular_peso_carga (float peso_total_camion_ton, float peso_solo_camion_ton){
     try { 
         float peso_neto_ton = 0;
