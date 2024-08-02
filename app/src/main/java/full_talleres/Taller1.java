@@ -31,13 +31,13 @@ public class Taller1 {
         double velocidad_ms;
         double velocidad_mh;
 
-        double FACTOR_CONV_KH_MS = 0.277777778;
-        double FACTOR_CONV_MS_MH = 3600;
+        final double FACTOR_CONV_KH_MS = 0.277777778;
+        final double FACTOR_CONV_MS_MH = 3600;
 
         try {
             velocidad_ms = velocidad_km * FACTOR_CONV_KH_MS;
             velocidad_mh = velocidad_ms * FACTOR_CONV_MS_MH;
-            return String.format("%f m/s  %f m/h", velocidad_ms, velocidad_mh);
+            return velocidad_ms + "m/s - " + velocidad_mh + "m/h";
             
         } 
         catch (Exception e) {
@@ -53,17 +53,15 @@ public class Taller1 {
     cc (centímetros cúbicos) y devuelva un float con su equivalente en litros. Si hay algún error, retorne 0.
     */
     public static float Convertir_cm_lt(double cc){
-     float lt = 0;
-     int centimetros = 0;
-     int lt_conv = 1000;
-     try{
-        lt = centimetros / lt_conv;
-        return lt;
-     }
-     catch (Exception e) {
-        return 0;
-
-     }
+        float litros = 0;
+        final short FACTOR_CONVERSION_CC_LT = 1000;
+        try {
+            litros = (float) (cc / FACTOR_CONVERSION_CC_LT);
+            return litros;
+        }
+        catch (Exception e){
+            return litros;
+        }
     }
   
     
@@ -146,9 +144,9 @@ public class Taller1 {
    Si hay algún error, devuelva en un string "Error en la función Calcular_peso_carga"
    */
     public static String Calcular_peso_carga (float peso_total_camion_ton, float peso_solo_camion_ton){
+        float peso_neto_ton;
+        float peso_neto_kg;
     try { 
-        float peso_neto_ton = 0;
-        float peso_neto_kg = 0;
         final short FACTOR_CONV_TON_KG = 1000;
         peso_neto_ton = peso_total_camion_ton - peso_solo_camion_ton;
         peso_neto_kg = peso_neto_ton * FACTOR_CONV_TON_KG;
