@@ -27,16 +27,15 @@ public class Taller1 {
      y la convierta a metros/seg y a metros/hora. Retorne un string del tipo: ### m/s - ### m/h. Si hay error, 
      devuelva el string "Error en la conversion"
     */
-    public static String Convertir_km_seg(int velocidad_km){
-        double velocidad_ms;
-        double velocidad_mh;
-
-        final double FACTOR_CONV_KH_MS = 0.277777778;
-        final double FACTOR_CONV_MS_MH = 3600;
-
+   public static String Convertir_km_seg(int velocidad_km){
+        
         try {
-            velocidad_ms = velocidad_km * FACTOR_CONV_KH_MS;
-            velocidad_mh = velocidad_ms * FACTOR_CONV_MS_MH;
+            double velocidad_ms = 0;
+            double velocidad_mh = 0;
+            final int FACTOR_CONV_KMS_MS = 1000;
+            final int FACTOR_CONV_KMS_MH = FACTOR_CONV_KMS_MS * 3600;
+            velocidad_ms = velocidad_km * FACTOR_CONV_KMS_MS;
+            velocidad_mh = velocidad_ms * FACTOR_CONV_KMS_MH;
             return velocidad_ms + "m/s - " + velocidad_mh + "m/h";
             
         } 
@@ -144,9 +143,9 @@ public class Taller1 {
    Si hay algún error, devuelva en un string "Error en la función Calcular_peso_carga"
    */
     public static String Calcular_peso_carga (float peso_total_camion_ton, float peso_solo_camion_ton){
-        float peso_neto_ton;
-        float peso_neto_kg;
     try { 
+        float peso_neto_ton = 0;
+        float peso_neto_kg = 0;
         final short FACTOR_CONV_TON_KG = 1000;
         peso_neto_ton = peso_total_camion_ton - peso_solo_camion_ton;
         peso_neto_kg = peso_neto_ton * FACTOR_CONV_TON_KG;
@@ -154,7 +153,7 @@ public class Taller1 {
         
     }  
     catch (Exception e) {
-        return ("Error en la función Calcular_peso_carga");
+        return "Error en la función Calcular_peso_carga";
     }
    }
 
@@ -225,11 +224,14 @@ public class Taller1 {
    Si hay algún error, devuelva 0.
    */
     public static double Calcular_peso_luna (byte peso_tierra_kg){
-    double peso_luna = 0;
-    final double FACTOR_CONV_KG_NEW = 9.81;
-    final double FACTOR_CONV_PESO_LUNA = 0.165;
+    
     try {
-        peso_luna = (peso_tierra_kg * FACTOR_CONV_KG_NEW) * FACTOR_CONV_PESO_LUNA;
+        double peso_luna = 0;
+        double peso_tierra_new = 0;
+        final double FACTOR_CONV_KG_NEW = 9.81f;
+        final double FACTOR_CONV_PESO_LUNA = 0.165f;
+        peso_tierra_new = peso_tierra_kg * FACTOR_CONV_KG_NEW;
+        peso_luna = peso_tierra_new * FACTOR_CONV_PESO_LUNA;
         return peso_luna;
         
     } 
